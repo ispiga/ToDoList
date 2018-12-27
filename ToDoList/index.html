@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>My To-Do List</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css" />
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+        .content{
+            background-color:bisque;
+            text-align: center;
+            padding: 15px;
+            margin-top:10px;
+            border-radius: 5px;
+            box-shadow: 5px 10px 18px bisque;
+        }
+        h1 {
+            color: #17a2b8;
+        }
+        .form-control {
+            border: none;
+        }
+        .form-control:focus{
+            box-shadow: 0 0 0 3px #17a2b8;
+        }
+        #myList {
+            text-align: left;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-weight: bold;
+            color: #17a2b8;
+        }
+        p{
+            color: #fff;
+        }
+        .remove{
+            margin-left: 5px;
+            background-color: transparent;
+            color: brown;
+            border: none;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4 offset-md-4  content">
+            <h1>LISTA DE TAREAS <i class="fas fa-clipboard-list"></i></h1>
+            <br /><br />
+            <div class="col-md-6 offset-md-3">
+                <input class="form-control" type="text" placeholder="Nueva Tarea" />
+            </div>
+            <br />
+            <div class="col-md-2 offset-md-5">
+                <button type="button" class="btn btn-info" id="add">Añadir</button>
+            </div>
+            <br /><br />
+            <ol id="myList"></ol>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#add").on("click", function () {
+            var val = $("input").val();
+
+            if (val !== '') {
+
+                //Creamos un objeto <li> y le añadimos el texto del input
+                var elemento = $("<li></li>").text(val);
+
+                //Insertamos un <button> al final del <li> creado anteriormente
+                $(elemento).append("<button class='remove'><i class='fas fa-times'></i></button>");
+
+                //Insertamos al final de nuestra lista <ol> el <li> con el <button>
+                $("#myList").append(elemento);
+
+                //Dejamos vacio el input
+                $("input").val("");
+
+                //Eliminamos el objeto padre del <button>, que en este caso es el <li>, si hacemos click en el <button>
+                $(".remove").on("click", function () {
+                    $(this).parent().remove();
+                });
+            }
+        });
+    });
+
+</script>
