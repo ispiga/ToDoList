@@ -8,8 +8,18 @@
     <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css" />
     <script src="js/jquery-3.3.1.min.js"></script>
     <style type="text/css">
+        @font-face {
+            font-family: Gloria_Hallelujah;
+            src: url(fonts/Gloria_Hallelujah/GloriaHallelujah.ttf);
+        }
+        @font-face {
+            font-family: Indie_Flower;
+            src: url(fonts/Indie_Flower/IndieFlower.ttf);
+        }
         .content{
+            font-family: Gloria_Hallelujah;
             background-color:bisque;
+            font-size:28px;
             text-align: center;
             padding: 15px;
             margin-top:10px;
@@ -18,17 +28,25 @@
         }
         h1 {
             color: #17a2b8;
+            font-size: 58px;
+            margin-top: 25px;
         }
         .form-control {
             border: none;
+            font-size: 28px;
         }
         .form-control:focus{
             box-shadow: 0 0 0 3px #17a2b8;
         }
+        .btn{
+            font-size: 28px;
+        }
         #myList {
+            font-family: Indie_Flower;
+            font-size: 38px;
             text-align: left;
-            margin-left: 20px;
-            margin-right: 20px;
+            margin-left: 25px;
+            margin-right: 25px;
             font-weight: bold;
             color: #17a2b8;
         }
@@ -46,10 +64,10 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-md-4 offset-md-4  content">
+        <div class="col-md-10 offset-md-1  content">
             <h1>LISTA DE TAREAS <i class="fas fa-clipboard-list"></i></h1>
             <br /><br />
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-8 offset-md-2">
                 <input class="form-control" type="text" placeholder="Nueva Tarea" />
             </div>
             <br />
